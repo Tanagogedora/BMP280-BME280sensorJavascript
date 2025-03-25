@@ -37,7 +37,7 @@ Web Serial API を使って、micro:bit からのシリアルデータを受信�
 
 ## ファイル構成
 
-/index.html // Web UI（グラフ＆数値表示） /GetData3.js // Web Serial + データ処理ロジック /LICENSE // MITライセンス /README.md // このファイル
+/BME280気温気圧高度javascript外装.html // Web UI（グラフ＆数値表示　Javascript外装　GetData3.jsと併用）/BME280気温気圧高度javascript内装.html//Web UI（グラフ＆数値表示　Javascript内臓　HTML単独で利用できる） /GetData3.js // Web Serial + データ処理ロジック /LICENSE // MITライセンス /README.md // このファイル
 
 ---
 
@@ -47,6 +47,10 @@ Web Serial API を使って、micro:bit からのシリアルデータを受信�
 2. 本プロジェクトの HTML ファイルをブラウザ（例：Edge）で開きます。
 3. 「接続」ボタンを押して micro:bit を接続し、データを受信します。
 4. ブラウザ上に数値とグラフが表示されます。
+5. 「CSVログをダウンロード」ボタンを押すとログファイルがダウンロードできます。（デフォルト直近から300個前まで）
+   注意点　「BME280気温気圧高度javascript外装.html」利用の際は同一ディレクトリに「GetData3.js」を置くこと
+           気圧センサーが鋭敏なため、センサーの位置（高さ）の変化がなくても大きく値がずれることがあります。その際は「P0初期化」ボタンを押すと標高差計算の基準値になる気圧がリセットされます。
+           なお初期状態で標高差は±1ｍ以内の誤差が出ることがわかっています。
 
 ---
 
