@@ -8,8 +8,7 @@ BMP280 および BME280 を micro:bit で利用し、データを数値として
 
 ## 概要
 
-このプロジェクトは、micro:bit に接続した BMP280 または BME280 センサから気温・気圧・湿度などのデータを取得し、  
-Webブラウザ上でリアルタイムに数値表示・グラフ化するための仕組みを提供します。
+このプロジェクトは、micro:bit に接続した BMP280 または BME280 センサから気温・気圧・湿度などのデータを取得し、Webブラウザ上でリアルタイムに数値表示・グラフ化するための仕組みを提供します。
 
 Web Serial API を使って、micro:bit からのシリアルデータを受信・解析・表示する構成になっています。
 
@@ -37,10 +36,26 @@ Web Serial API を使って、micro:bit からのシリアルデータを受信�
 
 ## ファイル構成
 
-/BME280気温気圧高度javascript外装.html // Web UI（グラフ＆数値表示・JavaScript外装型、GetData3.jsと併用） /BME280気温気圧高度javascript内装.html // Web UI（グラフ＆数値表示・JavaScript内蔵型、HTML単独で動作可） /GetData3.js // Web Serial + データ処理ロジック（外装HTMLと連携）
-/LICENSE // MITライセンス
-/README.md // このファイル
+### 🔹 HTMLファイル
 
+- `/BME280気温気圧高度javascript外装.html`  
+  Web UI（グラフ＆数値表示・JavaScript外装型、`GetData3.js` と併用）
+
+- `/BME280気温気圧高度javascript内装.html`  
+  Web UI（グラフ＆数値表示・JavaScript内蔵型、HTML単独で動作可）
+
+### 🔹 JavaScriptファイル
+
+- `/GetData3.js`  
+  Web Serial API とデータ処理ロジック（外装HTMLと組み合わせて使用）
+
+### 🔹 ドキュメント・ライセンス
+
+- `/README.md`  
+  プロジェクトの概要・使用方法・ライセンス情報など
+
+- `/LICENSE`  
+  MITライセンス全文
 
 ---
 
@@ -54,6 +69,7 @@ Web Serial API を使って、micro:bit からのシリアルデータを受信�
 
 ### 🔸 注意点
 
+-　BME280用で構築しましたがBMP280でも利用できます。ただし湿度のデータはありません。（BMP280は気温と気圧のセンサーのため）
 - `BME280気温気圧高度javascript外装.html` を使用する場合は、`GetData3.js` を**同一ディレクトリに配置**してください。
 - 気圧センサーは高感度なため、センサーの位置（高さ）の変化がなくても値に変動が生じることがあります。  
   その場合は「P0初期化」ボタンを押すと、標高差の計算基準となる気圧がリセットされます。
